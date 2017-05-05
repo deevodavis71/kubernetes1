@@ -121,10 +121,16 @@ kubectl get deployments
 
 Useful References
 =================
-
 https://www.brosinski.com/post/deploying-spring-boot-app-kubernetes/
 https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
 https://www.dontpanicblog.co.uk/2016/07/08/building-tagging-and-pushing-docker-images-with-maven/
 https://spring.io/guides/gs/service-registration-and-discovery/
 https://fabric8.io/guide/javaLibraries.html
 
+Eureka/Zuul
+-----------
+http://ryanjbaxter.com/2015/09/21/building-cloud-native-apps-with-spring-part-2/
+
+Debug
+-----
+http://blog.netgloo.com/2014/12/11/logging-in-spring-boot/

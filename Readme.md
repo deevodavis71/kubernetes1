@@ -1,3 +1,44 @@
+Testing
+=======
+
+mvn spring-boot:run
+
+Build
+=====
+
+mvn clean
+mvn versions:set -DnewVersion=0.0.2-SNAPSHOT
+mvn package
+
+Docker Build
+============
+
+docker build -t sjd300671/kubernetes1 .
+
+Testing Docker Build
+====================
+
+docker run -p 8080:8080 -t --name kub1 --rm sjd300671/kubernetes1
+
+Pushing to Docker Hub
+=====================
+
+docker login
+docker push sjd300671/kubernetes1
+
+Installing Kubernetes
+=====================
+
+brew update && brew install kubectl && brew cask install docker minikube virtualbox
+
+docker --version                # Docker version 1.12.3, build 6b644ec
+docker-compose --version        # docker-machine version 0.8.2, build e18a919
+docker-machine --version        # docker-compose version 1.8.1, build 878cff1
+minikube version                # minikube version: v0.12.2
+kubectl version --client        # Client Version: version.Info{Major:"1",
+
+https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7 
+
 Starting the cluster
 ====================
 

@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: kubernetes1-deployment-ingress
+spec:
+ rules:
+   - host: kubernetes1
+     http:
+       paths:
+         - path: /
+           backend:
+             serviceName: kubernetes1-deployment
+             servicePort: 8080

@@ -93,7 +93,8 @@ minikube service kubernetes1-deployment
 Testing the Service
 ===================
 
-curl 192.168.99.100:31438/api/sayHello/World
+kubectl describe svc kubernetes1-deployment
+curl 192.168.99.100:31798/api/sayHello/World
 
 Update the Docker Images
 ========================

@@ -79,8 +79,6 @@ kubectl get services my-service
 NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
 my-service   10.0.0.30    <pending>     8080:31438/TCP   36s
 
-curl 192.168.99.100:31438/api/sayHello/World
-
 -- OR -- (try not to use this one)
 
 kubectl expose deployment/kubernetes1-deployment
@@ -91,3 +89,8 @@ kubectl describe svc kubernetes1-deployment
 
 kubectl create -f service.yml
 minikube service kubernetes1-deployment
+
+Testing the Service
+===================
+
+curl 192.168.99.100:31438/api/sayHello/World

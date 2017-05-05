@@ -87,7 +87,7 @@ kubectl describe svc kubernetes1-deployment
 
 -- OR --
 
-kubectl create -f service.yml
+kubectl create -f service.NodePort.yml
 minikube service kubernetes1-deployment
 
 Testing the Service

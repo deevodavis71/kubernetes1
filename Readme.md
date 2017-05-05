@@ -75,7 +75,7 @@ Creating a Service
 
 kubectl expose deployment kubernetes1-deployment --type=LoadBalancer --name=my-service
 
-kubectl get services my-service
+kkuy-service
 NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
 my-service   10.0.0.30    <pending>     8080:31438/TCP   36s
 
@@ -94,3 +94,31 @@ Testing the Service
 ===================
 
 curl 192.168.99.100:31438/api/sayHello/World
+
+Update the Docker Images
+========================
+
+kubectl describe pods
+<returns containers>
+
+kubectl set image deployment/kubernetes1-deployment kubernetes1=sjd300671/kubernetes1
+
+Scale the deployment
+====================
+
+kubectl scale deployments/kubernetes1-deployment --replicas=4
+kubectl get deployments
+kubectl scale deployments/kubernetes1-deployment --replicas=3
+kubectl get deployments
+
+
+
+
+
+
+Useful References
+=================
+
+https://www.brosinski.com/post/deploying-spring-boot-app-kubernetes/
+https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
+

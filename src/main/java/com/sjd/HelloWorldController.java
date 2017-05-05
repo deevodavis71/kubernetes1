@@ -17,7 +17,7 @@ public class HelloWorldController
         try
         {
             Message m = new Message ();
-            m.setMessage("Hello to " + name + " from " + InetAddress.getLocalHost().getHostAddress());
+            m.setMessage ("Hello to " + name + " from " + InetAddress.getLocalHost().getHostAddress());
             m.setCounter(m.getCounter() + 1);
             return m;
         }

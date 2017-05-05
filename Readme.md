@@ -93,6 +93,8 @@ minikube service kubernetes1-deployment
 Testing the Service
 ===================
 
+NOTE: IP Address 192.168.99.100 is per the url "minikube dashboard --url"
+
 kubectl describe svc kubernetes1-deployment
 curl 192.168.99.100:31798/api/sayHello/World
 

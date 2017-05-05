@@ -104,7 +104,7 @@ Update the Docker Images
 kubectl describe pods
 <returns containers>
 
-kubectl set image deployment/kubernetes1-deployment kubernetes1=sjd300671/kubernetes1
+kubectl set image deployment/kubernetes1-deployment kubernetes1=sjd300671/kubernetes1:latest
 
 Scale the deployment
 ====================

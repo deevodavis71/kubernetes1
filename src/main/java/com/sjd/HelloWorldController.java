@@ -1,5 +1,7 @@
 package com.sjd;
 
+import java.net.InetAddress;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +14,18 @@ public class HelloWorldController
     @RequestMapping (path = "/sayHello/{name}", method = RequestMethod.GET)
     public Message sayHello (@PathVariable (name = "name") String name)
     {
-        Message m = new Message ();
-        m.setMessage("Hello to " + name);
-        return m;
+        try
+        {
+            Message m = new Message ();
+            m.setMessage("Hello to " + name + " from " + InetAddress.getLocalHost().getHostAddress());
+            m.setCounter(m.getCounter() + 1);
+            return m;
+        }
+        catch (Exception e)
+        {
+            System.out.println (e);
+        }
+
+        return null;
     }
 }

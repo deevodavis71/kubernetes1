@@ -82,20 +82,22 @@ my-service   10.0.0.30    <pending>     8080:31438/TCP   36s
 -- OR -- (try not to use this one)
 
 kubectl expose deployment/kubernetes1-deployment
-kubectl get svc kubernetes1-deployment
-kubectl describe svc kubernetes1-deployment
+kubectl get svc kubernetes1-service
+kubectl describe svc kubernetes1-service
 
 -- OR --
 
 kubectl create -f service.NodePort.yml
-minikube service kubernetes1-deployment
+minikube service kubernetes1-service
 
 Testing the Service
 ===================
 
-NOTE: IP Address 192.168.99.100 is per the url "minikube dashboard --url"
+NOTE: IP Address 192.168.99.100 is per the url "minikube dashboard --url" or "minikube ip"
 
-kubectl describe svc kubernetes1-deployment
+The port (31798 below) can be found either via the minikube dashboard, or "kubectl get svc kubernetes1-service" or..
+
+kubectl describe svc kubernetes1-service
 curl 192.168.99.100:31798/api/sayHello/World
 
 Update the Docker Images

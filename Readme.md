@@ -116,7 +116,23 @@ kubectl get deployments
 kubectl scale deployments/kubernetes1-deployment --replicas=3
 kubectl get deployments
 
+Setting up nginx Api Gateway
+============================
 
+brew install nginx
+sudo vi /usr/local/etc/nginx/nginx.conf
+
+    server {
+        # Set to listen on port 80, rather than 8080
+        listen       80;
+
+        # Map http://localhost/kub1/api/sayHello/nginx to http://192.168.99.100:30605/api/sayHello/nginx
+        location /kub1 {
+            proxy_pass http://192.168.99.100:30605/;
+        }
+
+sudo nginx
+sudo nginx -s stop
 
 
 
@@ -136,3 +152,8 @@ http://ryanjbaxter.com/2015/09/21/building-cloud-native-apps-with-spring-part-2/
 Debug
 -----
 http://blog.netgloo.com/2014/12/11/logging-in-spring-boot/
+
+Nginx
+-----
+https://codingexplained.com/dev-ops/mac/installing-nginx-os-x-yosemite
+https://serverfault.com/questions/536576/nginx-how-do-i-forward-a-http-request-to-another-port

@@ -116,6 +116,18 @@ kubectl get deployments
 kubectl scale deployments/kubernetes1-deployment --replicas=3
 kubectl get deployments
 
+Installing Ingress Controller
+=============================
+
+minikube addons enable ingress
+kubectl create -f ingress.yml
+
+Testing Ingress
+===============
+
+echo "$(minikube ip) myminikube" | sudo tee -a /etc/hosts
+
+
 Setting up nginx Api Gateway
 ============================
 

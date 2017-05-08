@@ -1,4 +1,4 @@
-FROM sbrosinski/minimal-java
+FROM sjd300671/minimal-java
 VOLUME /tmp
 EXPOSE 8080
 ADD target/kubernetes1-0.0.2-SNAPSHOT.jar app.jar

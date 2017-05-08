@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,14 +26,15 @@ public class HelloWorldController
     private DiscoveryClient discoveryClient;   
 
     @RequestMapping (path = "/sayHello/{name}", method = RequestMethod.GET)
-    public Message sayHello (@PathVariable (name = "name") String name)
+    public ResponseEntity<Message> sayHello (@PathVariable (name = "name") String name)
     {
         try
         {
             Message m = new Message ();
             m.setMessage ("Hello to " + name + " from " + InetAddress.getLocalHost().getHostAddress());
             m.setCounter(m.getCounter() + 1);
-            return m;
+
+            return new ResponseEntity<Message>(m, HttpStatus.OK);
         }
         catch (Exception e)
         {
@@ -42,7 +45,7 @@ public class HelloWorldController
     }
 
     @RequestMapping (path = "/getServices/{name}", method = RequestMethod.GET)
-    public List<DiscoveredService> getServices (@PathVariable (name = "name") String name)
+    public ResponseEntity<List<DiscoveredService>> getServices (@PathVariable (name = "name") String name)
     {
         logger.info ("CALLED THE GET SERVICES!!!");
 
@@ -68,7 +71,7 @@ public class HelloWorldController
             }
         }
 
-       if (ret.size() == 0)
+        if (ret.size() == 0)
         {
             // Just return back the implementation class for debug purposes
             DiscoveredService debug = new DiscoveredService ();
@@ -95,11 +98,8 @@ public class HelloWorldController
                 
                 ret.add (debug);
             }
-
-            // Just return
-            return ret;
         }
 
-        return ret;
+        return new ResponseEntity<List<DiscoveredService>> (ret, HttpStatus.OK);
     }
 }

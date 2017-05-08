@@ -120,16 +120,19 @@ Installing Ingress Controller
 =============================
 
 minikube addons enable ingress
-kubectl create -f ingress.yml
+kubectl create -f ingress.complex.yml
+kubectl describe ing kubernetes1-service-ingress
 
 Testing Ingress
 ===============
 
 echo "$(minikube ip) myminikube" | sudo tee -a /etc/hosts
+curl myminikube/api/sayHello/Ingress-are-you-there
 
 
-Setting up nginx Api Gateway
-============================
+--OR
+Setting up an external nginx Api Gateway (outside the kubernetes cluster)
+=========================================================================
 
 brew install nginx
 sudo vi /usr/local/etc/nginx/nginx.conf
@@ -156,6 +159,7 @@ https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-ad
 https://www.dontpanicblog.co.uk/2016/07/08/building-tagging-and-pushing-docker-images-with-maven/
 https://spring.io/guides/gs/service-registration-and-discovery/
 https://fabric8.io/guide/javaLibraries.html
+https://medium.com/@Oskarr3/setting-up-ingress-on-minikube-6ae825e98f82
 
 Eureka/Zuul
 -----------

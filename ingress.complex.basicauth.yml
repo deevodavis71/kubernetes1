@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubernetes1-service-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    # type of authentication
+    ingress.kubernetes.io/auth-type: basic
+    # name of the secret that contains the user/password definitions
+    ingress.kubernetes.io/auth-secret: kubernetes1-basic-auth
+    # message to display with an appropiate context why the authentication is required
+    ingress.kubernetes.io/auth-realm: "Authentication Required - Kubernetes1 !!"
+spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
+  rules:
+  - host: myminikube
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubernetes1-service
+          servicePort: 8080

@@ -116,12 +116,32 @@ kubectl get deployments
 kubectl scale deployments/kubernetes1-deployment --replicas=3
 kubectl get deployments
 
-Installing Ingress Controller
-=============================
+Installing Ingress Controller (No Authentication)
+=================================================
 
 minikube addons enable ingress
 kubectl create -f ingress.complex.yml
 kubectl describe ing kubernetes1-service-ingress
+
+Installing Ingress Controller (Basic Authentication)
+====================================================
+
+https://www.diigo.com/user/deevodavis/b/398061118
+
+minikube addons enable ingress
+
+htpasswd -c auth steve  <pass1234>
+kubectl create secret generic kubernetes1-basic-auth --from-file=auth
+kubectl get secret kubernetes1-basic-auth -o yaml
+
+kubectl create -f ingress.complex.basicauth.yml
+kubectl describe ing kubernetes1-service-ingress
+
+curl myminikube/api/sayHello/Ingress-are-you-there
+<404>
+
+curl -u 'steve:pass1234' myminikube/api/sayHello/Ingress-are-you-there
+<200>
 
 Testing Ingress
 ===============

@@ -100,6 +100,12 @@ The port (31798 below) can be found either via the minikube dashboard, or "kubec
 kubectl describe svc kubernetes1-service
 curl 192.168.99.100:31798/api/sayHello/World
 
+-- OR internally via a pod (note the internal DNS name) --  
+
+kubectl get pods  
+kubectl exec -it kubernetes1-deployment-4293399826-4l3kp -- bash   
+curl kubernetes1-service:8080/api/sayHello/Steve  
+
 Update the Docker Images
 ========================
 

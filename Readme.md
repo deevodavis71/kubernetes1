@@ -42,7 +42,7 @@ https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7
 Starting the cluster
 ====================
 
-minikube start  
+minikube start --memory 2048  
 minikube dashboard  
 
 Deployment to Kubernetes

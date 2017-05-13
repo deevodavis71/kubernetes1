@@ -42,20 +42,16 @@ https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7
 Starting the cluster
 ====================
 
-<<<<<<< HEAD
-Minikube login detail : docker / tcuser
+Minikube login detail : docker / tcuser  
 
-minikube delete
+minikube delete  
 minikube start  
 
-minikube ssh
-=======
-minikube start --memory 2048  
->>>>>>> ccd41c37f76e89cd530cb90244b98d561238120f
-minikube dashboard  
+minikube ssh  
+minikube start --memory 2048    
+minikube dashboard    
 
-minikube stop
-
+minikube stop  
 
 Additionals (if needed)
 -----------------------

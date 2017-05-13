@@ -42,12 +42,16 @@ https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7
 Starting the cluster
 ====================
 
+<<<<<<< HEAD
 Minikube login detail : docker / tcuser
 
 minikube delete
 minikube start  
 
 minikube ssh
+=======
+minikube start --memory 2048  
+>>>>>>> ccd41c37f76e89cd530cb90244b98d561238120f
 minikube dashboard  
 
 minikube stop
@@ -115,6 +119,12 @@ The port (31798 below) can be found either via the minikube dashboard, or "kubec
 
 kubectl describe svc kubernetes1-service  
 curl 192.168.99.100:31798/api/sayHello/World  
+
+-- OR internally via a pod (note the internal DNS name) --  
+
+kubectl get pods  
+kubectl exec -it kubernetes1-deployment-4293399826-4l3kp -- bash   
+curl kubernetes1-service:8080/api/sayHello/Steve  
 
 Update the Docker Images
 ========================

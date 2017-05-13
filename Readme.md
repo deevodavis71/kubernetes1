@@ -42,8 +42,24 @@ https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7
 Starting the cluster
 ====================
 
+Minikube login detail : docker / tcuser
+
+minikube delete
 minikube start  
+
+minikube ssh
 minikube dashboard  
+
+minikube stop
+
+
+Additionals (if needed)
+-----------------------
+
+kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+
+kubectl create -f kubernetes-addons/kubernetes-dashboard.yaml
+kubectl create -f kubernetes-addons/kubernetes-dns.yaml
 
 Deployment to Kubernetes
 ========================
@@ -194,3 +210,7 @@ Nginx
 -----
 https://codingexplained.com/dev-ops/mac/installing-nginx-os-x-yosemite
 https://serverfault.com/questions/536576/nginx-how-do-i-forward-a-http-request-to-another-port
+
+Kubernetes addons (if minikube needs them)
+------------------------------------------
+https://coreos.com/kubernetes/docs/latest/deploy-addons.html

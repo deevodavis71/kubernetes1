@@ -56,6 +56,8 @@ minikube stop
 Additionals (if needed)
 -----------------------
 
+kubectl get pods --namespace=kube-system
+
 kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
 
 kubectl create -f kubernetes-addons/kubernetes-dashboard.yaml

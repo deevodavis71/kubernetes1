@@ -53,8 +53,8 @@ minikube dashboard
 
 minikube stop  
 
-Additionals (if needed)
------------------------
+Additionals (if needed!)
+------------------------
 
 kubectl get pods --namespace=kube-system
 
